@@ -10,7 +10,7 @@ export const getRecentSpend = (user_id: string, response: Response) => {
         LEFT JOIN 
             (SELECT expense_id, SUM(expense_amount) AS sum
             FROM expenses
-            WHERE expense_date >= CURRENT_DATE - interval '6 days' AND expenses.user_id = ${user_id}
+            WHERE expense_date >= '2024-01-28'::timestamp - interval '6 days' AND expenses.user_id = 91235
             GROUP BY expense_id) 
         AS b
         ON expense_type.expense_id = b.expense_id
@@ -34,7 +34,7 @@ export const getAllAverByWeek = (user_id: string, response: Response) => {
         `SELECT expense_type.expense_id, coalesce(b.aver,0) AS average_all_time_by_week
         FROM expense_type
         LEFT JOIN 
-            (SELECT expense_id, ROUND(SUM(expense_amount)/(extract('day' from (CURRENT_TIMESTAMP - (select user_joining_date from "user" where user_id = ${user_id})))+1) * 7) AS aver
+            (SELECT expense_id, ROUND(SUM(expense_amount)/(extract('day' from ('2024-01-28'::timestamp - (select user_joining_date from "user" where user_id = ${user_id})))+1) * 7) AS aver
             FROM expenses
             WHERE user_id = ${user_id}
             GROUP BY expense_id) 
@@ -62,7 +62,7 @@ export const getTodaySpend = (user_id: string, response: Response) => {
         LEFT JOIN 
             (SELECT expense_id, expense_amount 
             FROM expenses 
-            WHERE expense_date = CURRENT_DATE AND user_id = ${user_id}) 
+            WHERE expense_date = '2024-01-28' AND user_id = ${user_id}) 
         AS b 
         ON expense_type.expense_id = b.expense_id
         ORDER BY expense_type.expense_id ASC;`,
@@ -111,7 +111,7 @@ export const getAllTimeSpend = (user_id: string, response: Response) => {
 export const updateTodayExpenses = (user_id: number, expenses: number[]) => {
     db.query(
         `DELETE FROM expenses
-        WHERE user_id = ${user_id} AND expense_date = CURRENT_DATE;`,
+        WHERE user_id = ${user_id} AND expense_date = '2024-01-28';`,
         (err, res) => {
             if (err) {
                 console.log(err)
@@ -124,15 +124,15 @@ export const updateTodayExpenses = (user_id: number, expenses: number[]) => {
     queryString += `INSERT INTO "expenses" (user_id, expense_id, expense_date, expense_amount) VALUES `
 
     if (expenses[0] > 0) {
-        queryString +=  `(${user_id}, 1, CURRENT_DATE, ${expenses[0]}),`
+        queryString +=  `(${user_id}, 1, '2024-01-28', ${expenses[0]}),`
     }
 
     if (expenses[1] > 0) {
-        queryString +=  `(${user_id}, 2, CURRENT_DATE, ${expenses[1]}),`
+        queryString +=  `(${user_id}, 2, '2024-01-28', ${expenses[1]}),`
     }
 
     if (expenses[2] > 0) {
-        queryString +=  `(${user_id}, 3, CURRENT_DATE, ${expenses[2]}),`
+        queryString +=  `(${user_id}, 3, '2024-01-28', ${expenses[2]}),`
     }
 
     queryString = queryString.slice(0, -1);

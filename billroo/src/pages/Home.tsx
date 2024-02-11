@@ -4,7 +4,7 @@ import "../styles/home.css";
 import axios from "axios";
 
 const Home = () => {
-  const [userID, setUserID] = useState<number>(1);
+  const [userID, setUserID] = useState<number>(91235); // change user ID here
   const [userDays, setUserDays] = useState<number>(1);
 
   const [headerBtnText, setHeaderBtnText] = useState<string>("Add expenses");
