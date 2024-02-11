@@ -1,0 +1,56 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Container {
+    width: 90%;
+    height: 90%;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.Container__Content {
+    padding: 20px;
+}
+
+.Container__Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.Container__Header p {
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+    
+}
+
+.Container__Header__Button {
+    border: 2px solid rgb(0, 120, 255);
+    border-radius: 10px;
+    padding: 10px;
+    color: rgb(0, 120, 255);
+        text-decoration: none;
+}
+
+.Container__Body {
+    display: flex;
+    flex-direction: column;
+}
