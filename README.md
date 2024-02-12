@@ -10,8 +10,9 @@ https://youtu.be/Nk3jJE5chHc
 2) MANUALLY create a database in POSTGRES (e.g., pgAdmin 4).
 3) Paste the initialization SQL script in ./backend/init_script/initTable.sql and run it.
 4) Perform the npm install command.
-5) Open two terminals for frontend and backend: in the frontend terminal, run "npm start," and in the backend terminal, run "npm run start."
-6) Enjoy!
+5) Change the db config to your setting
+6) Open two terminals for frontend and backend: in the frontend terminal, run "npm start," and in the backend terminal, run "npm run start."
+7) Enjoy!
 
 ### Test Data:
 1) Switch to the branch named "test."
