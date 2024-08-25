@@ -1,5 +1,3 @@
-# Please read this, or I will cry :(
-
 ## QUICK DEMO
 https://youtu.be/Nk3jJE5chHc
 
@@ -42,13 +40,6 @@ AVERAGE ALL TIME = (SUM OF ALL TIME / (NOW - DATE JOINED)) * 7 (inclusive)
 PERCENTAGE = SUM OF NOW TO LAST 7 DAYS / AVERAGE ALL TIME * 100
 
 IF PERCENTAGE = 105, it means an increase of 5%. 95% means a decrease of 5%. 100 means no change.
-
-## ACKNOWLEDGMENT:
-I know the frontend script is a bit messy to read because I handled many scenarios in the easiest way possible.
-
-Sorry for not including more comments in the code.
-
-I can do AWS if you want.
 
 
 
