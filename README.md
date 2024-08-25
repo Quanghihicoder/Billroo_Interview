@@ -1,6 +1,3 @@
-## QUICK DEMO
-https://youtu.be/Nk3jJE5chHc
-
 ## Set-Up
 
 ### Installation:
